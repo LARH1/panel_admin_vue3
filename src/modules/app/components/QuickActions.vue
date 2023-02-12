@@ -1,23 +1,17 @@
 <template>
 <li class="nav-item">
     <a class="nav-link" href="#">
-        <svg class="icon icon-lg">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
-        </svg>
+        <i class="fa-regular fa-bell"></i>
     </a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="#">
-        <svg class="icon icon-lg">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
-        </svg>
+        <i class="fa-solid fa-table-cells-large"></i>
     </a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="#">
-        <svg class="icon icon-lg">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
-        </svg>
+        <i class="fa-regular fa-envelope"></i>
     </a>
 </li>
 </template>

@@ -1,35 +1,27 @@
 <template>
 <li class="nav-item">
     <a class="nav-link" href="index.html">
-        <svg class="nav-icon">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-        </svg>
+        <i class="fa-solid fa-gauge-high nav-icon"></i>
         Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span>
     </a>
 </li>
 <li class="nav-title">Theme</li>
 <li class="nav-item">
     <a class="nav-link" href="">
-        <svg class="nav-icon">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-        </svg>
+        <i class="fa-solid fa-droplet nav-icon"></i>
         Colors
     </a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="typography.html">
-        <svg class="nav-icon">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-        </svg>
+        <i class="fa-solid fa-pen nav-icon"></i>
         Typography
     </a>
 </li>
 <li class="nav-title">Components</li>
 <li class="nav-group">
     <a class="nav-link nav-group-toggle" href="#">
-        <svg class="nav-icon">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
-        </svg>
+        <i class="fa-solid fa-puzzle-piece nav-icon"></i>
         Base
     </a>
     <ul class="nav-group-items">
@@ -40,9 +32,7 @@
 </li>
 <li class="nav-group">
     <a class="nav-link nav-group-toggle" href="#">
-        <svg class="nav-icon">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
-        </svg>
+        <i class="fa-solid fa-star nav-icon"></i>
         Icons
     </a>
     <ul class="nav-group-items">
@@ -52,9 +42,7 @@
 </li>
 <li class="nav-item">
     <a class="nav-link" href="widgets.html">
-        <svg class="nav-icon">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calculator"></use>
-        </svg>
+        <i class="fa-solid fa-square-root-variable nav-icon"></i>
         Widgets<span class="badge badge-sm bg-info ms-auto">NEW</span>
     </a>
 </li>
