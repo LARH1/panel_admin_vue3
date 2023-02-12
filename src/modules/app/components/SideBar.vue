@@ -11,6 +11,9 @@
         <i class="fa-solid fa-droplet nav-icon"></i>
         Colors
     </a>
+    <router-link class="nav-link" active-class="active" :to="{name:'some-asd'}">
+        <i class="fa-solid fa-droplet nav-icon"></i> Colors 2
+    </router-link>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="typography.html">

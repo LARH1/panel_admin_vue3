@@ -1,22 +1,21 @@
-import {defineAsyncComponent} from 'vue'
 import {createRouter,createWebHashHistory} from 'vue-router'
 
+import homeRouter from "@/modules/app/router";
 const routes = [
   {
-    // Pagina principal
-    path: '/',
-    name: 'home',
-    component: defineAsyncComponent(() => import(
-      /**LayoutTemplate */
-      "@/modules/app/pages/Layout.vue"))
-  },
-  {
+    // About
     path: '/about',
     name: 'about',
     component: () => import(
       /* webpackChunkName: "about" */
       '../views/AboutView.vue')
   },
+  {
+    // Home
+    path: "/home",
+    ...homeRouter
+  }
+
 ]
 
 const router = createRouter({

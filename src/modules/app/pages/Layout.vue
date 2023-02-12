@@ -46,7 +46,8 @@
         </div>
     </header>
     <div class="body flex-grow-1 px-3">
-        <p>Contenido</p>
+        <!-- Contenido de Application -->
+        <router-view />
     </div>
     <footer class="footer">
         <Footer />
