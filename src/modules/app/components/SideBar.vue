@@ -45,37 +45,35 @@ export default
             {
                 name: "Menus",
                 icon: "fa-solid fa-layer-group",
-                path_name: "sistema-modulos",
+                path_name: "sistema-menus",
                 type: 1, // Single
             },
             {
-                name: "Multi",
-                icon: "fa-solid fa-check",
+                name: "Usuarios",
+                icon: "fa-solid fa-users",
+                path_name: "sistema-usuarios",
+                type: 1, // Single
+            }, ]
+        },
+        {
+            name: "Inventario",
+            options: [
+            {
+                name: "Productos",
+                icon: "fa-solid fa-boxes-stacked",
                 path_name: "",
-                type: 2, // Multi
+                type: 2, // Single
                 options: [
                 {
-                    name: "Sub 1",
+                    name: "Catálogo",
                     icon: "fa-solid fa-layer-group",
-                    path_name: "some-asd",
+                    path_name: "inventario-catalogo",
                 },
                 {
-                    name: "Sub 2",
+                    name: "Registro",
                     icon: "fa-solid fa-layer-group",
-                    path_name: "some-asd",
+                    path_name: "inventario-registro",
                 }, ]
-            },
-            {
-                name: "Menu 2",
-                icon: "fa-solid fa-users",
-                path_name: "some-asd",
-                type: 1, // Single
-            },
-            {
-                name: "Menu 3",
-                icon: "fa-solid fa-times",
-                path_name: "some-asd",
-                type: 1, // Single
             }, ]
         }, ]
         return {

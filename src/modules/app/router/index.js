@@ -1,11 +1,13 @@
+import Inventario from "@/modules/inventario/routes"
+import Sistema from "@/modules/sistema/routes"
 /**
- * Rutas de Application
+ * Rutas del Home
  */
 export default
     {
         name: "home",
         component: () => import(
-            /* webpackChunkName: "daybook" */
+            /* webpackChunkName: "Layout_Home" */
             "@/modules/app/pages/Layout.vue"),
         children: [
             {
@@ -14,6 +16,8 @@ export default
                 component: () => import(
                     /* webpackChunkName: "EmptyEntry" */
                     "../views/Some.vue"),
-            }
+            },
+            ...Sistema,
+            ...Inventario,
         ],
     }
