@@ -5,56 +5,83 @@
         Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span>
     </a>
 </li>
-<li class="nav-title">Theme</li>
-<li class="nav-item">
-    <a class="nav-link" href="">
-        <i class="fa-solid fa-droplet nav-icon"></i>
-        Colors
-    </a>
-    <router-link class="nav-link" active-class="active" :to="{name:'some-asd'}">
-        <i class="fa-solid fa-droplet nav-icon"></i> Colors 2
-    </router-link>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="typography.html">
-        <i class="fa-solid fa-pen nav-icon"></i>
-        Typography
-    </a>
-</li>
-<li class="nav-title">Components</li>
-<li class="nav-group">
-    <a class="nav-link nav-group-toggle" href="#">
-        <i class="fa-solid fa-puzzle-piece nav-icon"></i>
-        Base
-    </a>
-    <ul class="nav-group-items">
-        <li class="nav-item"><a class="nav-link" href="base/accordion.html"><span class="nav-icon"></span> Accordion</a></li>
-        <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span class="nav-icon"></span> Breadcrumb</a></li>
-        <li class="nav-item"><a class="nav-link" href="base/tooltips.html"><span class="nav-icon"></span> Tooltips</a></li>
-    </ul>
-</li>
-<li class="nav-group">
-    <a class="nav-link nav-group-toggle" href="#">
-        <i class="fa-solid fa-star nav-icon"></i>
-        Icons
-    </a>
-    <ul class="nav-group-items">
-        <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-free.html"> CoreUI Icons<span class="badge badge-sm bg-success ms-auto">Free</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-brand.html"> CoreUI Icons - Brand</a></li>
-    </ul>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="widgets.html">
-        <i class="fa-solid fa-square-root-variable nav-icon"></i>
-        Widgets<span class="badge badge-sm bg-info ms-auto">NEW</span>
-    </a>
-</li>
+<template :key="i" v-for="(m,i) in menus">
+    <li class="nav-title">{{m.name}}</li>
+    <template :key="j" v-for="(s,j) in m.options">
+        <!-- Single -->
+        <li v-if="s.type==1" class="nav-item">
+            <router-link class="nav-link" active-class="active" :to="{name:s.path_name}">
+                <i class="nav-icon" :class="s.icon"></i>{{s.name}}
+            </router-link>
+        </li>
+        <!-- Multi -->
+        <li class="nav-group" v-if="s.type==2">
+            <a class="nav-link nav-group-toggle" href="#">
+                <i class="nav-icon" :class="s.icon"></i>
+                {{s.name}}
+            </a>
+            <ul class="nav-group-items">
+                <li class="nav-item" :key="i" v-for="(sm,i) in s.options">
+                    <router-link class="nav-link" :to="{name:sm.path_name}">
+                        <span class="nav-icon"></span> {{sm.name}}
+                    </router-link>
+                </li>
+            </ul>
+        </li>
+    </template>
+</template>
 </template>
 
 <script>
 export default
 {
     name: "app-sidebar",
+    setup()
+    {
+        const menus = [
+        {
+            name: "Sistema",
+            options: [
+            {
+                name: "Menus",
+                icon: "fa-solid fa-layer-group",
+                path_name: "sistema-modulos",
+                type: 1, // Single
+            },
+            {
+                name: "Multi",
+                icon: "fa-solid fa-check",
+                path_name: "",
+                type: 2, // Multi
+                options: [
+                {
+                    name: "Sub 1",
+                    icon: "fa-solid fa-layer-group",
+                    path_name: "some-asd",
+                },
+                {
+                    name: "Sub 2",
+                    icon: "fa-solid fa-layer-group",
+                    path_name: "some-asd",
+                }, ]
+            },
+            {
+                name: "Menu 2",
+                icon: "fa-solid fa-users",
+                path_name: "some-asd",
+                type: 1, // Single
+            },
+            {
+                name: "Menu 3",
+                icon: "fa-solid fa-times",
+                path_name: "some-asd",
+                type: 1, // Single
+            }, ]
+        }, ]
+        return {
+            menus
+        }
+    }
 }
 </script>
 
