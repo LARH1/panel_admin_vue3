@@ -23,7 +23,7 @@
             <ul class="nav-group-items">
                 <li class="nav-item" :key="i" v-for="(sm,i) in s.options">
                     <router-link class="nav-link" :to="{name:sm.path_name}">
-                        <span class="nav-icon"></span> {{sm.name}}
+                        {{sm.name}}
                     </router-link>
                 </li>
             </ul>
@@ -33,49 +33,16 @@
 </template>
 
 <script>
+import useApp from "../composables/useApp";
 export default
 {
     name: "app-sidebar",
     setup()
     {
-        const menus = [
+        const
         {
-            name: "Sistema",
-            options: [
-            {
-                name: "Menus",
-                icon: "fa-solid fa-layer-group",
-                path_name: "sistema-menus",
-                type: 1, // Single
-            },
-            {
-                name: "Usuarios",
-                icon: "fa-solid fa-users",
-                path_name: "sistema-usuarios",
-                type: 1, // Single
-            }, ]
-        },
-        {
-            name: "Inventario",
-            options: [
-            {
-                name: "Productos",
-                icon: "fa-solid fa-boxes-stacked",
-                path_name: "",
-                type: 2, // Single
-                options: [
-                {
-                    name: "Catálogo",
-                    icon: "fa-solid fa-layer-group",
-                    path_name: "inventario-catalogo",
-                },
-                {
-                    name: "Registro",
-                    icon: "fa-solid fa-layer-group",
-                    path_name: "inventario-registro",
-                }, ]
-            }, ]
-        }, ]
+            menus
+        } = useApp()
         return {
             menus
         }
