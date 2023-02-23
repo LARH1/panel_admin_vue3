@@ -159,6 +159,9 @@ export default
                 {
                     action.value = 2
                     titleModal.value = "Actualizar menú"
+                    menu.value = {
+                        ...model
+                    }
                 }
                 else // Nuevo
                 {
@@ -185,7 +188,17 @@ export default
                 }
                 else // Actualizar
                 {
-                    console.error("Actu", menu);
+                    const res = await store.dispatch("sistema/updateMenu", menu.value)
+                    if (res.status)
+                    {
+                        alert("Actualizado correctamente")
+                        menu.value = {}
+                        modalMenu.value.closeModal()
+                    }
+                    else
+                    {
+                        alert(res.ms)
+                    }
                 }
             }
         }
