@@ -34,3 +34,22 @@ export const updateMenu = async (context,menu) =>
         return {status: false,ms: "Error"}
     }
 }
+
+/**
+ * Action para eliminar un nuevo menu
+ * @param id Id del menú a eliminar 
+ * @returns Respuesta
+ */
+export const deleteMenu = async (context,id) =>
+{
+    try
+    {
+        // Borrar en DB
+        context.commit("deleteMenu",id)
+        return {status: true,ms: ""}
+    } catch (ex)
+    {
+        console.error(ex);
+        return {status: false,ms: "Error"}
+    }
+}

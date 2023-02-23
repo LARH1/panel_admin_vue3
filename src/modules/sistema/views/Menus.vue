@@ -26,7 +26,7 @@
                             <template #actions>
                                 <button type="button" class="dropdown-item" @click="openModal(m)">
                                     <i class="fa-solid fa-edit"></i>Actualizar</button>
-                                <button type="button" class="dropdown-item">
+                                <button type="button" class="dropdown-item" @click="deleteMenu(m.id)">
                                     <i class="fa-solid fa-times"></i>Eliminar</button>
                             </template>
                         </actions>
@@ -102,7 +102,7 @@
         </form>
     </template>
     <template #modal-footer>
-        <button @click="saveMenu" type="button" class="btn btn-primary">Guardar</button>
+        <button @click="saveMenu" type="button" class="btn btn-primary">{{actionName}}</button>
     </template>
 
 </modal>
@@ -111,6 +111,7 @@
 <script>
 import
 {
+    computed,
     defineAsyncComponent,
     ref,
 }
@@ -134,6 +135,7 @@ export default
         const store = useStore()
         const action = ref(1)
         const modalMenu = ref()
+        const allMenus = ref([])
         const titleModal = ref("")
         const menu = ref(
         {
@@ -145,12 +147,18 @@ export default
             path: "",
             parent: "",
         })
+        const getMenus = () =>
+        {
+            allMenus.value = store.getters["sistema/getAllMenus"]
+        }
+        const actionName = computed(() => action.value == 1 ? "Registrar" : "Actualizar")
+        getMenus()
         return {
-            action,
+            actionName,
             menu,
             modalMenu,
+            allMenus,
             titleModal,
-            allMenus: store.getters["sistema/getAllMenus"],
             allGroups: store.getters["sistema/getAllGroups"],
             onlyMenus: store.getters["sistema/getOnlyMenus"],
             openModal: (model) =>
@@ -180,6 +188,7 @@ export default
                         alert("Guardado correctamente")
                         menu.value = {}
                         modalMenu.value.closeModal()
+                        getMenus()
                     }
                     else
                     {
@@ -194,6 +203,25 @@ export default
                         alert("Actualizado correctamente")
                         menu.value = {}
                         modalMenu.value.closeModal()
+                        getMenus()
+                    }
+                    else
+                    {
+                        alert(res.ms)
+                    }
+                }
+            },
+            deleteMenu: async (id) =>
+            {
+                const conf = confirm("¿Eliminar el menú seleccionado?");
+
+                if (conf)
+                {
+                    const res = await store.dispatch("sistema/deleteMenu", id)
+                    if (res.status)
+                    {
+                        alert("Eliminado correctamente")
+                        getMenus()
                     }
                     else
                     {
