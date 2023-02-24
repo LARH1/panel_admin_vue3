@@ -4,12 +4,12 @@
 const routes =
     [
         {
-            path: "menus",
+            path: "sistema/menus",
             name: "sistema-menus",
             component: () => import( /* webpackChunkName: "Sistema-Modulos" */ "../views/Menus.vue"),
         },
         {
-            path: "menus",
+            path: "sistema/usuarios",
             name: "sistema-usuarios",
             component: () => import( /* webpackChunkName: "Sistema-Usuarios" */ "../views/Usuarios.vue"),
         },
