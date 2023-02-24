@@ -16,3 +16,22 @@ export const deleteMenu = (state,id) =>
     const idx = state.allMenus.indexOf(old)
     state.allMenus.splice(idx,1);
 }
+
+export const addNewUser = (state,user) =>
+{
+    state.users.push(user)
+}
+
+export const updateUser = (state,user) =>
+{
+    const old = state.users.find(u => u.id == user.id)
+    const idx = state.users.indexOf(old)
+    state.users[idx] = user
+}
+
+export const deleteUser = (state,id) =>
+{
+    const old = state.users.find(m => m.id == id)
+    const idx = state.users.indexOf(old)
+    state.users.splice(idx,1);
+}

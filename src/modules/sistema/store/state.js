@@ -73,4 +73,13 @@ export default () => (
                     name: "Productos",
                 },
             ],
+        // Usuarios del sistema
+        users: [
+            {
+                id: 1,
+                full_name: "Usuario demo 1",
+                user_name: "demo1",
+                email: "demo1@mail.com",
+            },
+        ]
     })

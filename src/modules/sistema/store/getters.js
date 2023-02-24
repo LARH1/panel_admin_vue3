@@ -24,3 +24,12 @@ export const getOnlyMenus = (state) =>
 {
     return state.groups;
 }
+
+/**
+ * Obtener todass los menus del sistema, de tipo Menu
+ * @returns Array Menus del sistema
+ */
+export const getAllUsers = (state) =>
+{
+    return state.users;
+}
