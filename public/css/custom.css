@@ -16,3 +16,8 @@
   background-color: #3c29297a !important;
   overflow-y: auto;
 }
+
+.cursor-pointer
+{
+  cursor: pointer;
+}

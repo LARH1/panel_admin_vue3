@@ -19,21 +19,41 @@
             Profile
         </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item cursor-pointer" @click="onLogOut">
             <i class="fa-solid fa-lock"></i>
-            Lock Account
+            Salir
         </a>
     </div>
 </li>
 </template>
 
 <script>
+import
+{
+    useRouter
+}
+from 'vue-router';
+import { useStore } from 'vuex';
 export default
 {
     name: "app-general-actions",
     setup()
     {
+        const store=useStore()
+        const router = useRouter()
+        return {
+            onLogOut: () =>
+            {
+                // Salir
+                router.push(
+                {
+                    name: "auth-login"
+                });
+                // Limpiar datos del store aqui
 
+                store.commit("auth/logOut");
+            }
+        }
     },
 }
 </script>
