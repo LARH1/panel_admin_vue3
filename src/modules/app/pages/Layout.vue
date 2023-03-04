@@ -1,14 +1,8 @@
 <template>
 <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
     <div class="sidebar-brand d-none d-md-flex">
-        <!-- Brand Icon Mobile -->
-        <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="assets/brand/coreui.svg#full"></use>
-        </svg>
-        <!-- Brand Icon desktop -->
-        <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
-            <use xlink:href="assets/brand/coreui.svg#signet"></use>
-        </svg>
+        <!-- Brand Icon Desktop -->
+        <img class="bg-white px-2 py-1" src="assets/img/panel_admin_4.png" alt="Panel Admin" height="45">
     </div>
     <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
         <Sidebar />
@@ -22,11 +16,7 @@
                 <i class="fa-solid fa-bars icon icon-lg"></i>
             </button>
             <!-- Brand mobile -->
-            <a class="header-brand d-md-none" href="#">
-                <svg width="118" height="46" alt="CoreUI Logo">
-                    <use xlink:href="assets/brand/coreui.svg#full"></use>
-                </svg>
-            </a>
+            <img class="header-brand d-md-none" src="assets/img/panel_admin_2.png" alt="Panel Admin" height="45">
             <ul class="header-nav d-none d-md-flex">
                 Nombre módulo
             </ul>
@@ -56,6 +46,16 @@
 </template>
 
 <script>
+import
+{
+    useRouter
+}
+from 'vue-router';
+import
+{
+    useStore
+}
+from 'vuex';
 import Breadcrumb from "../components/Breadcrumb.vue";
 import Footer from "../components/Footer.vue";
 import GeneralActions from "../components/GeneralActions.vue";
@@ -74,7 +74,16 @@ export default
     },
     setup()
     {
-
+        // FIXME: Solución temporal para recargar el navegador
+        // al ingresar por primera vez 
+        const store = useStore()
+        const router = useRouter()
+        const isFirst = store.getters["app/getReload"]
+        store.commit("app/changeReload")
+        if (isFirst)
+        {
+            router.go()
+        }
     },
 }
 </script>

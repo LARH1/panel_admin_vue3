@@ -1,5 +1,6 @@
 export default () => (
     {
+        reload:false,
         // Menus del Sidebar
         menus: [
             {

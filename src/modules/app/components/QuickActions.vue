@@ -1,16 +1,16 @@
 <template>
 <li class="nav-item">
-    <a class="nav-link" href="" @click="action">
+    <a class="nav-link" href="" @click.prevent="action">
         <i class="fa-regular fa-bell"></i>
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="" @click="action">
+    <a class="nav-link" href="" @click.prevent="action">
         <i class="fa-solid fa-table-cells-large"></i>
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="" @click="action">
+    <a class="nav-link" href="" @click.prevent="action">
         <i class="fa-regular fa-envelope"></i>
     </a>
 </li>

@@ -1,4 +1,4 @@
-// export const myMutation=(state)=>
-// {
-
-// }
+export const changeReload = (state) =>
+{
+    state.reload = true
+}

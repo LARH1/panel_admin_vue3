@@ -16,7 +16,7 @@
         </li>
         <!-- Multi -->
         <li class="nav-group" v-if="s.type==2">
-            <a class="nav-link nav-group-toggle" href="#">
+            <a class="nav-link nav-group-toggle" @click.prevent="">
                 <i class="nav-icon" :class="s.icon"></i>
                 {{s.name}}
             </a>
